@@ -1,7 +1,14 @@
 using Microsoft.EntityFrameworkCore;
-namespace prueba.API.Data;
 using prueba.API.Model;
-public class AppDbContext
+
+namespace prueba.API.Data
 {
-    public DbSet<Meals> Meals { get; set; }
+    public class AppDbContext : DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+
+        public DbSet<Meals> Meals { get; set; }
+    }
 }
